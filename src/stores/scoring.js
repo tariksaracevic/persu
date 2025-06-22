@@ -31,47 +31,97 @@ const questions = [
   { theme: 'Entrepreneurship', weights: { Entrepreneurship: 0.0900 } },
 ];
 
-const themeMaxPoints = {
-  Spirituality: 0.660,
-  Career: 0.240,
-  Education: 0.540,
-  Avocation: 0.150,
-  Lifestyle: 0.450,
-  Relationships: 0.600,
-  Finances: 0.540,
-  Entrepreneurship: 0.300,
-};
-
 export const calculateScores = (answers) => {
-  const themeScores = {
+  // Ensure we are working with numbers, defaulting null/undefined to 0.
+  const numAnswers = answers.map(a => (a === null || a === undefined) ? 0 : Number(a));
+
+  const rawScores = {
     Spirituality: 0,
-    Career: 0,
     Education: 0,
-    Avocation: 0,
     Lifestyle: 0,
-    Relationships: 0,
     Finances: 0,
+    Career: 0,
+    Avocation: 0,
+    Relationships: 0,
     Entrepreneurship: 0,
   };
 
-  answers.forEach((answer, index) => {
-    if (answer === null || answer === undefined) return;
+  // Calculate raw scores based on the provided JS file logic
+  rawScores.Spirituality =
+    numAnswers[0] * 0.0495 + numAnswers[1] * 0.0495 + numAnswers[2] * 0.0495 + numAnswers[3] * 0.0495 +
+    numAnswers[7] * 0.0015 + numAnswers[8] * 0.0015 + numAnswers[9] * 0.0015 + numAnswers[10] * 0.0015 + numAnswers[11] * 0.0015 +
+    numAnswers[13] * 0.0015 + numAnswers[14] * 0.0015 + numAnswers[15] * 0.0015 + numAnswers[16] * 0.0015 + numAnswers[17] * 0.0015 +
+    numAnswers[21] * 0.0015 + numAnswers[23] * 0.0015 + numAnswers[24] * 0.0015 + numAnswers[25] * 0.0015 + numAnswers[26] * 0.0015;
 
-    const question = questions[index];
-    if (!question) return;
+  rawScores.Education =
+    numAnswers[4] * 0.0540 + numAnswers[5] * 0.0540 + numAnswers[6] * 0.0540 +
+    numAnswers[0] * 0.0023 + numAnswers[1] * 0.0023 + numAnswers[3] * 0.0023 +
+    numAnswers[8] * 0.0023 + numAnswers[11] * 0.0023 + numAnswers[14] * 0.0023 +
+    numAnswers[17] * 0.0023 + numAnswers[21] * 0.0023;
 
-    for (const theme in question.weights) {
-      if (themeScores.hasOwnProperty(theme)) {
-        themeScores[theme] += (question.weights[theme] / 3) * answer;
-      }
-    }
-  });
+  rawScores.Lifestyle =
+    numAnswers[7] * 0.0338 + numAnswers[8] * 0.0338 + numAnswers[9] * 0.0338 + numAnswers[10] * 0.0338 +
+    numAnswers[0] * 0.0014 + numAnswers[1] * 0.0014 + numAnswers[2] * 0.0014 + numAnswers[3] * 0.0014 +
+    numAnswers[6] * 0.0014 + numAnswers[11] * 0.0014 + numAnswers[14] * 0.0014 + numAnswers[16] * 0.0014 +
+    numAnswers[17] * 0.0014 + numAnswers[19] * 0.0014 + numAnswers[21] * 0.0014;
+
+  rawScores.Finances =
+    numAnswers[11] * 0.0180 + numAnswers[12] * 0.0180 + numAnswers[13] * 0.0180 + numAnswers[14] * 0.0180 +
+    numAnswers[15] * 0.0180 + numAnswers[16] * 0.0180 +
+    numAnswers[0] * 0.0012 + numAnswers[1] * 0.0012 + numAnswers[2] * 0.0012 + numAnswers[3] * 0.0012 +
+    numAnswers[4] * 0.0012 + numAnswers[5] * 0.0012 + numAnswers[6] * 0.0012 + numAnswers[7] * 0.0012 +
+    numAnswers[8] * 0.0012 + numAnswers[19] * 0.0012;
+
+  rawScores.Career =
+    numAnswers[17] * 0.0180 + numAnswers[18] * 0.0180 + numAnswers[19] * 0.0180 + numAnswers[20] * 0.0180 +
+    numAnswers[0] * 0.0009 + numAnswers[1] * 0.0009 + numAnswers[3] * 0.0009 + numAnswers[4] * 0.0009 +
+    numAnswers[5] * 0.0009 + numAnswers[8] * 0.0009 + numAnswers[9] * 0.0009 + numAnswers[10] * 0.0009 +
+    numAnswers[26] * 0.0009;
+
+  rawScores.Avocation =
+    numAnswers[21] * 0.0150 + numAnswers[22] * 0.0150 + numAnswers[23] * 0.0150 +
+    numAnswers[0] * 0.0005 + numAnswers[1] * 0.0005 + numAnswers[3] * 0.0005 +
+    numAnswers[6] * 0.0005 + numAnswers[8] * 0.0005 + numAnswers[10] * 0.0005 +
+    numAnswers[11] * 0.0005 + numAnswers[14] * 0.0005 + numAnswers[15] * 0.0005 +
+    numAnswers[17] * 0.0005 + numAnswers[21] * 0.0005;
+
+  rawScores.Relationships =
+    numAnswers[24] * 0.0600 + numAnswers[25] * 0.0600 + numAnswers[26] * 0.0600 +
+    numAnswers[0] * 0.0012 + numAnswers[1] * 0.0012 + numAnswers[2] * 0.0012 + numAnswers[3] * 0.0012 +
+    numAnswers[6] * 0.0012 + numAnswers[7] * 0.0012 + numAnswers[8] * 0.0012 + numAnswers[9] * 0.0012 +
+    numAnswers[10] * 0.0012 + numAnswers[11] * 0.0012 + numAnswers[12] * 0.0012 + numAnswers[13] * 0.0012 +
+    numAnswers[14] * 0.0012 + numAnswers[15] * 0.0012 + numAnswers[16] * 0.0012 + numAnswers[17] * 0.0012 +
+    numAnswers[21] * 0.0012;
+
+  rawScores.Entrepreneurship =
+    numAnswers[27] * 0.0300 + numAnswers[28] * 0.0300 + numAnswers[29] * 0.0300 +
+    numAnswers[0] * 0.0004 + numAnswers[1] * 0.0004 + numAnswers[2] * 0.0004 + numAnswers[3] * 0.0004 +
+    numAnswers[4] * 0.0004 + numAnswers[5] * 0.0004 + numAnswers[7] * 0.0004 + numAnswers[8] * 0.0004 +
+    numAnswers[9] * 0.0004 + numAnswers[10] * 0.0004 + numAnswers[11] * 0.0004 + numAnswers[12] * 0.0004 +
+    numAnswers[13] * 0.0004 + numAnswers[14] * 0.0004 + numAnswers[15] * 0.0004 + numAnswers[16] * 0.0004 +
+    numAnswers[17] * 0.0004 + numAnswers[18] * 0.0004 + numAnswers[19] * 0.0004 + numAnswers[20] * 0.0004 +
+    numAnswers[23] * 0.0004 + numAnswers[24] * 0.0004 + numAnswers[25] * 0.0004 + numAnswers[26] * 0.0004;
+
+  // The definitive max points, taken directly from your calculation.js file
+  const themeMaxPoints = {
+    Spirituality: 0.66,
+    Career: 0.24,
+    Education: 0.54,
+    Avocation: 0.15,
+    Lifestyle: 0.45,
+    Relationships: 0.60,
+    Finances: 0.36,
+    Entrepreneurship: 0.30,
+  };
 
   const themePercentages = {};
-  for (const theme in themeScores) {
-    if (themeMaxPoints[theme]) {
-      const percentage = (themeScores[theme] / themeMaxPoints[theme]) * 100;
-      themePercentages[theme] = Math.round(percentage);
+  for (const theme in rawScores) {
+    if (themeMaxPoints.hasOwnProperty(theme)) {
+      // Replicating the logic from your file:
+      // 1. Calculate percentage directly from the un-rounded raw score.
+      const percentage = (rawScores[theme] / themeMaxPoints[theme]) * 100;
+      // 2. Round the final percentage and subtract 100.
+      themePercentages[theme] = Math.round(percentage) - 100;
     }
   }
 
