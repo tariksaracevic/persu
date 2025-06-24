@@ -15,10 +15,10 @@
                 }).replace(/ /g, ' ') }}</span>
             </v-card-title>
             <v-card-text class="pa-4">
-                <p class="mb-6">
+                <h3 class="mb-6 font-weight-bold">
                     Below is your personal sustainability compass which measures your alignment with the 8 key personal
                     sustainability principles, pointing you where you are improving and where to improve on.
-                </p>
+                </h3>
                 <v-row>
                     <v-col cols="12" md="5" class="py-0">
                         <v-list>
@@ -35,54 +35,64 @@
                         </v-list>
                     </v-col>
                     <v-col cols="12" md="7" class="d-flex align-center justify-center bg-grey-lighten-3 my-5">
-                        <div style="height: 550px; width: 550px">
+                        <div style="position: relative; width: 550px; height: 550px;">
                             <RadarChart :scores="scores" />
+                            <span style="
+                            text-align: end;
+                                    position: absolute;
+                                    right: 20px;
+                                    bottom: 20px;
+                                    font-size: 1rem;
+                                    color: #a2a2a2;
+                                    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+                                    opacity: 0.8;
+                                    z-index: 2;
+                                    pointer-events: none;
+                                    margin-right: -40px;
+                                    margin-bottom: -80px;
+                                ">
+                                www.persugoals.com
+                                <br>© 2025 PERSU Goals | All rights reserved
+                            </span>
                         </div>
                     </v-col>
                 </v-row>
             </v-card-text>
         </v-card>
 
-        <v-card class="pa-6 my-8 text-center" flat color="grey-lighten-4">
-            <p>We hope your assessment results resonate with you. Now you know what areas of your life you should
-                maintain or
-                improve. Bear in mind that these results are not forever. You have the choice and power to start making
-                or
-                sustaining progress in your life. Your assessment results can change in 3-12 months, so we recommend
-                taking it
-                at least every quarter to keep yourself on track on your personal development and sustainability
-                journey.</p>
-            <p class="font-weight-bold mt-4">SHARE your progress or SEND a copy of your results to your email today so
-                you'll
-                have reference for your future assessments.</p>
-
-            <div class="text-center mt-8">
-                <v-btn size="x-large" @click="downloadResultsPdf" :loading="isDownloading">
-                    <span class="text-h5 grey--text text--darken-2">DOWNLOAD</span>
-                </v-btn>
-            </div>
+        <v-card class="pa-6 my-8" flat color="grey-lighten-4">
+            <p>We hope your assessment results brought you insight and clarity. They're here to help you recognise which
+                areas
+                of your life are thriving - and which ones may need a little more care and attention.
+            </p>
+            <br>
+            <p>Keep in mind, these results aren't set in stone. You have the power to create change and build momentum
+                starting
+                today. With consistent effort,
+                you can see meaningful progress in just 3-12 months. That's why we recommend retaking this assessment
+                every
+                quarter to stay aligned, intentional,
+                and on track with your personal sustainability journey.
+            </p>
+            <br>
+            <p class="font-weight-bold">PERSU Goals® offers a complete system where this assessment is fully
+                integrated. It
+                comes in an interactive digital tool with a
+                step-by-step guide not only for pursuing your life goals but your holistic, sustainable personal growth.
+            </p>
         </v-card>
 
-
-        <div class="text-center my-8">
-            <p class="text-h5 font-weight-bold mb-2">Now, you must be wondering...</p>
-            <p class="text-h6 font-weight-regular"><i>"How do I interpret and use my results moving forward?"</i></p>
-            <p class="text-h6 font-weight-regular"><i>"How can I improve my score?"</i></p>
-            <p class="text-h6 font-weight-regular"><i>"Where can I find guidance about PERSU Goals®."</i></p>
-        </div>
-
-        <div class="text-center mb-8">
-            <p class="text-h5 font-weight-bold">Good that you asked, 'coz we're happy to help you on your next steps.
-            </p>
-            <p class="text-h4 font-weight-bold"><u>Everything</u> is in your <span class="orange-text">PERSUer's
-                    Pack!</span></p>
-        </div>
-
         <v-btn size="x-large" color="#F57C00" dark block>
-            <span class="text-white text-h5 font-weight-bold">I WANT TO KNOW MORE</span>
+            <span class="text-white text-h5 font-weight-bold">Start Your Journey with PERSU Goals® Now</span>
         </v-btn>
 
-        <div class="text-center mt-12 text-light-grey">
+        <div class="text-center mt-8">
+            <p @click="downloadResultsPdf">
+                <span class="text-h5 grey--text text--darken-2 cursor-pointer"><u>SHARE YOUR RESULTS</u></span>
+            </p>
+        </div>
+
+        <div class="text-center mt-16 text-light-grey">
             <v-img src="@/assets/PERSU Goals Icon (Black).png" contain height="30" width="auto"></v-img>
             <p class="text-caption">www.persugoals.com</p>
             <p class="text-caption">© 2025 PERSU Goals | Jean Paul Peteza | London, UK</p>

@@ -32,7 +32,7 @@ export default defineConfig({
     Fonts({
       google: {
         families: [{
-          name: 'Roboto',
+          name: 'Poppins',
           styles: 'wght@100;300;400;500;700;900',
         }],
       },

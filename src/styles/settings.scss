@@ -8,3 +8,11 @@
 // @use 'vuetify/settings' with (
 //   $color-pack: false
 // );
+
+body, html, #app {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, button, input, textarea, select, option, label, a, div {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
+}

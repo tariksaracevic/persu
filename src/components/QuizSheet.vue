@@ -54,7 +54,7 @@
         <!-- Footer -->
         <div class="pa-4" style="background-color: #dfdcdb;">
             <div class="text-center">
-                <v-img src="@/assets/PERSU Goals Icon (Black).png" contain height="30" class="mb-2 mx-auto"></v-img>
+                <v-img src="@/assets/PERSU Goals Icon (Grey) 1.png" contain height="30" class="mb-2 mx-auto"></v-img>
                 <p class="text-caption" style="color: #a2a2a2;">© 2025 PERSU Goals | London, UK | All rights reserved.
                 </p>
             </div>

@@ -16,4 +16,11 @@ export default createVuetify({
   theme: {
     defaultTheme: 'light',
   },
+  defaults: {
+    global: {
+      style: {
+        fontFamily: "'Poppins', Arial, Helvetica, sans-serif"
+      }
+    }
+  }
 })

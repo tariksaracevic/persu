@@ -54,9 +54,9 @@ export default {
                     label: 'Your PERSU Profile',
                     data: labels.map(label => this.scores[label] || 0),
                     fill: true,
-                    backgroundColor: 'rgba(245, 124, 0, 0)',
+                    backgroundColor: 'rgba(190 ,190, 190, 0.5)',
                     borderColor: '#000',
-                    borderWidth: 2,
+                    borderWidth: 3,
                     pointBackgroundColor: '#fff',
                     pointBorderColor: '#000',
                     pointHoverBackgroundColor: '#fff',
@@ -68,16 +68,22 @@ export default {
             return {
                 responsive: true,
                 maintainAspectRatio: false,
+                elements: {
+                    point: {
+                        radius: 0,
+                        hoverRadius: 0,
+                    }
+                },
                 scales: {
                     r: {
                         min: -100,
                         max: 100,
                         ticks: {
-                            stepSize: 50,
-                            display: false,
+                            stepSize: 100,
+                            display: true,
                         },
                         grid: {
-                            color: 'rgba(0, 0, 0, 0.1)',
+                            color: 'rgba(356, 356, 356, 1)',
                             display: true,
                         },
                         pointLabels: {

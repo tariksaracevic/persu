@@ -18,27 +18,23 @@
                 </h1>
 
                 <v-card class="pa-6 my-12" rounded="xl" flat>
-                    <p class="font-weight-bold" style="color: #F57C00;">BEFORE WE DIVE RIGHT INTO YOUR ASSESSMENT
-                        RESULTS, JUST A
-                        GENTLE REMINDER:</p>
+                    <p class="font-weight-bold" style="color: #F57C00;">JUST AGENTLE REMINDER BEFORE WE SHOW YOUR
+                        RESULTS:</p>
 
                     <div class="text-h5 font-weight-regular my-6">
-                        <p><i>
-                                The results you get from this assessment is only designed to <span
-                                    class="font-weight-bold">validate </span>
-                                <u>where</u> you are now in life and <span class="font-weight-bold">inform</span> you on
-                                your <u>next
-                                    steps</u>.
-                            </i>
+                        <p>
+                            This assessment is designed to <span class="font-weight-bold">validate </span>
+                            where you are <i>now</i> in different areas of life and to <span
+                                class="font-weight-bold">inform</span> your
+                            growth journey.
+
                         </p>
                         <br>
-                        <p><i>
-                                They DO NOT define <u>who</u> you are and <u>what</u> you will become, your
-                                <span class="font-weight-bold">response</span> and <span
-                                    class="font-weight-bold">actions
-                                </span>
-                                <u>after</u> this assessment DO.
-                            </i>
+                        <p>
+                            The outcome does <i>not</i> define who you are or what you will become - <span
+                                class="font-weight0bold"> your response and actions afterwards do.
+                            </span>
+
                         </p>
                     </div>
                     <v-btn size="x-large" color="#000" dark rounded="lg" @click="$emit('show-results')">
@@ -51,7 +47,7 @@
         <!-- Footer -->
         <div class="pa-4" style="background-color: #dfdcdb;">
             <div class="text-center">
-                <v-img src="@/assets/PERSU Goals Icon (Black).png" contain height="30" class="mb-2 mx-auto"></v-img>
+                <v-img src="@/assets/PERSU Goals Icon (Grey) 1.png" contain height="30" class="mb-2 mx-auto"></v-img>
                 <p class="text-caption" style="color: #a2a2a2;">© 2025 PERSU Goals | London, UK | All rights reserved.
                 </p>
             </div>
